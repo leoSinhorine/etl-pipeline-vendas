@@ -1,20 +1,39 @@
-# 📊 Pipeline ETL Simples para Análise de Vendas
+Pipeline ETL de Vendas
+Projeto de Engenharia de Dados focado em automação de ponta a ponta: do CSV ao Dashboard.
 
-Este projeto demonstra um pipeline ETL simples com o objetivo de realizar análise temporal de vendas diárias utilizando PostgreSQL e Power BI.
+🎯 Objetivo
+Automatizar a ingestão e o tratamento de dados de vendas, utilizando uma estrutura de camadas para garantir dados limpos e prontos para análise.
 
----
+🛠️ Tecnologias
+Python (Pandas & SQLAlchemy) - Ingestão e automação.
 
-## 🎯 Objetivo
+PostgreSQL - Armazenamento e lógica de banco.
 
-Construir um pipeline básico onde:
+Power BI - Visualização e KPIs.
 
-1. Dados de vendas são carregados em um banco PostgreSQL
-2. São realizadas transformações para gerar métricas agregadas
-3. Os dados transformados são visualizados no Power BI
+Batch Script - Execução com um clique.
 
-Esse formato simula um cenário real de análise de dados em um ambiente empresarial.
+🏗️ Arquitetura (Camadas)
+Bronze (Raw): Dados brutos via Python (vendas_raw).
 
----
+Silver (Trusted): Dados limpos e tipados via SQL (vendas).
 
-## 🧱 Arquitetura Geral do Pipeline
+Gold (Analytics): Dashboard conectado para tomada de decisão.
 
+Destaque Técnico: Implementação de Generated Columns no SQL para cálculo automático de faturamento, centralizando a regra de negócio no banco de dados.
+
+📂 Estrutura
+Plaintext
+
+ ├── dashboard/      # Power BI (.pbix)
+ ├── data/           # CSVs Brutos
+ ├── scripts/        # Python ETL
+ ├── sql/            # Scripts do Banco
+ └── executar_pipeline.bat # Execução rápida
+ 
+🚀 Como usar
+Configure sua senha no arquivo ingestao_dados.py.
+
+Execute o arquivo executar_pipeline.bat.
+
+Abra o Power BI e clique em Atualizar.
